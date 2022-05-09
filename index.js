@@ -6,7 +6,7 @@ const cors = require('cors')
 var morgan = require('morgan')
 app.use(express.json())
 app.use(cors())
-
+app.use(express.static('build'))
 morgan.token('data', function (req, res) { return JSON.stringify(req.body) })
 
 
@@ -35,7 +35,7 @@ let persons = [
 ]
 
 app.get('/', morgan('tiny'), (req, res) => {
-  res.send('<h1>Hello World!</h1>')
+  res.send()
 })
 
 app.get('/api/persons', morgan('tiny'), (req, res) => {
